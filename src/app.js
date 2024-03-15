@@ -3,6 +3,7 @@ import express from "express";
 import dotenv from "dotenv";
 import AuthRouter from "./routes/auth.js";
 import StocksRouter from "./routes/stocksList.js";
+import BuySellRouter from "./routes/buysell.js";
 //For testing purpose dummy login utilities
 import User from "./models/User.js";
 import jwt from "jsonwebtoken";
@@ -26,6 +27,7 @@ app.get("/", (req, res) => {
 
 app.use("/auth", AuthRouter)
 app.use("/stocks", StocksRouter)
+app.use("/buysell", BuySellRouter)
    
 //For testing purpose made a dummy login for writing and testing authentication middlewares
 // app.post('/login', async (req, res) => {

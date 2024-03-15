@@ -39,6 +39,12 @@ const fetchAndUpdateStocks = async () => {
 }
 
 const isMarketOpen = () => {
+
+    // print in the terminal "api key missing"
+    if (!process.env.RAPIDAPI_KEY || !process.env.RAPIDAPI_HOST) {
+        console.error('API key missing here');
+        return false;
+    }
     const now = new Date();
     const dayOfWeek = now.getDay();
     const hours = now.getHours();
