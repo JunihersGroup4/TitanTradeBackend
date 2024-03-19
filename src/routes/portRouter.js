@@ -6,9 +6,7 @@ import { generatePortfolio, togglePortfolioStatus } from "../controllers/portfol
 const portRouter = Router();
 
 portRouter.get(
-    "/get",
-    authenticateJWT,
-    validateUser,
+    "/get?",
     generatePortfolio
 );
 
