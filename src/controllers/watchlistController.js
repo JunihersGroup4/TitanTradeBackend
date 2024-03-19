@@ -66,20 +66,20 @@ export const get_watchlist = async (req, res) => {
         const enhancedWatchlist = await Promise.all(
             userWatchlist.map(async (watchlistItem) => {
                 const companyDetails = await Companies.findOne({ Company_Id: new ObjectId(watchlistItem.Company_Id) });
-                // console.log(companyDetails);
+                
                 return {
                     ...watchlistItem.toObject(),
                     companyDetails,
                 };
             })
         );
-        // console.log("watch: ",enhancedWatchlist);
+        
         return res.status(200).json({
             status: 200,
             data: enhancedWatchlist
         })
     } catch (err) {
-        console.log("ftgf", err);
+        console.log(err);
         return res.status(500).json({
             status: 500,
             message: err.message
